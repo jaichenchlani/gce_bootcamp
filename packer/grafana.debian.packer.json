@@ -1,0 +1,24 @@
+{
+    "builders": [
+      {
+        "type": "googlecompute",
+        "project_id": "codegarage-381602",
+        "account_file": "../credentials.json",
+        "source_image": "debian-11-bullseye-v20230306",
+        "ssh_username": "packer",
+        "zone": "us-east1-b",
+        "image_name": "grafana-debian",
+        "tags" : ["packer","web-server"],
+        "image_labels": {
+            "provisioned_by": "packer"
+        }
+      }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "../scripts/install_grafana_debian.sh"
+        }
+    ]  
+}
+  

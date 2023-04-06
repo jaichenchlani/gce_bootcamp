@@ -1,0 +1,66 @@
+POST https://dev-compute.sandbox.googleapis.com/compute/beta/projects/codegarage-381602/global/backendServices
+{
+  "backends": [
+    {
+      "balancingMode": "UTILIZATION",
+      "capacityScaler": 1,
+      "group": "projects/codegarage-381602/zones/us-east1-b/instanceGroups/mig-statichtml",
+      "maxUtilization": 0.8
+    }
+  ],
+  "cdnPolicy": {
+    "cacheKeyPolicy": {
+      "includeHost": true,
+      "includeProtocol": true,
+      "includeQueryString": true
+    },
+    "cacheMode": "CACHE_ALL_STATIC",
+    "clientTtl": 3600,
+    "defaultTtl": 3600,
+    "maxTtl": 86400,
+    "negativeCaching": false,
+    "serveWhileStale": 0
+  },
+  "connectionDraining": {
+    "drainingTimeoutSec": 300
+  },
+  "description": "",
+  "enableCDN": true,
+  "healthChecks": [
+    "projects/codegarage-381602/global/healthChecks/website-health-check"
+  ],
+  "loadBalancingScheme": "EXTERNAL_MANAGED",
+  "localityLbPolicy": "ROUND_ROBIN",
+  "logConfig": {
+    "enable": true,
+    "sampleRate": 1
+  },
+  "name": "statichtml-backend-service",
+  "portName": "http",
+  "protocol": "HTTP",
+  "sessionAffinity": "NONE",
+  "timeoutSec": 30
+}
+
+POST https://compute.googleapis.com/compute/v1/projects/codegarage-381602/global/urlMaps
+{
+  "defaultService": "projects/codegarage-381602/global/backendServices/statichtml-backend-service",
+  "name": "statichtml-lb"
+}
+
+POST https://compute.googleapis.com/compute/v1/projects/codegarage-381602/global/targetHttpProxies
+{
+  "name": "statichtml-lb-target-proxy",
+  "urlMap": "projects/codegarage-381602/global/urlMaps/statichtml-lb"
+}
+
+POST https://compute.googleapis.com/compute/v1/projects/codegarage-381602/global/forwardingRules
+{
+  "IPAddress": "projects/codegarage-381602/global/addresses/statichtml-lb-ip",
+  "IPProtocol": "TCP",
+  "loadBalancingScheme": "EXTERNAL_MANAGED",
+  "name": "http",
+  "networkTier": "PREMIUM",
+  "portRange": "80",
+  "target": "projects/codegarage-381602/global/targetHttpProxies/statichtml-lb-target-proxy"
+}
