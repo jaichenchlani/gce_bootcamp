@@ -75,12 +75,12 @@ variable "statichtmlwithjs_instance_template_description" {
 
 variable "statichtml_instance_startup_script_file" { 
     type            = string
-    default         = "/Users/jai/mydata/technical/business/courses/gce_bootcamp/demos/scripts/startup_script_statichtml_centos.sh"
+    default         = "../../scripts/startup_script_statichtml_centos.sh"
 }
 
 variable "statichtmlwithjs_instance_startup_script_file" { 
     type            = string
-    default         = "/Users/jai/mydata/technical/business/courses/gce_bootcamp/demos/scripts/startup_script_statichtmlwithjs_debian.sh"
+    default         = "../../scripts/startup_script_statichtmlwithjs_debian.sh"
 }
 
 variable "statichtml_image" { 

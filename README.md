@@ -17,12 +17,14 @@ https://www.udemy.com/course/google-cloud-gce-reliability-engineering-using-terr
     - Update `variable.tf` in *all stages folders* to change the project name to your project
 
 ## Test and Validate Instructions
-Navigate to *each stage folder*, and run the following commands:
+Navigate to *each stage folder*, and run the following commands with **sudo** permissions:
 1. `terraform init` validate for successful completion. Resolve errors.
 2. `terraform plan --var-file ../global.tfvars` validate output
 3. `terraform apply` to create the resources
 4. `terraform state list` should show the resources created per the plan
 5. `terraform destroy` to create the resources
+*without sudo, you will run into issues like*
+`Unable to write the module manifest file: open .terraform/modules/modules.json: permission denied`
 
 ## Folders
 
