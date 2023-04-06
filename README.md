@@ -2,11 +2,11 @@
 Google Cloud | GCE Reliability Engineering using Terraform
 
 ## Introduction
-All the code used for the demos for the Udemy Course
+All the code used for the demos for the Udemy Course  
 https://www.udemy.com/course/google-cloud-gce-reliability-engineering-using-terraform
 
 ## Setup Instructions
-1. Download the Compute Engine default service account key, and save it as *credentials.json* in the root folder. Refer [sa_key_download](sa_key_download.png)
+1. Download the Compute Engine default service account key, and save it as *credentials.json* in the root folder. Refer [sa_key_download](images/sa_key_download.png)
 2. Navigate to packer folder and run the following commands
     1. `packer build -force statichtml.centos.packer.json` Build the statichtml webserver image
     2. `packer build -force statichtmlwithjs.debian.packer.json` Build the statichtmlwithjs webserver image
@@ -61,8 +61,8 @@ Packer build json configurations for both statichtml and statichtmlwithjs websit
 
 ### demo_apps
 Demo Apps for various Stages
-- [static-html](static-html.png) - Static HTML website with no JS.
-- [static-html-with-js](static-html-with-js.png) - Static HTML website with JS.
+- [static-html](images/static-html.png) - Static HTML website with no JS.
+- [static-html-with-js](images/static-html-with-js.png) - Static HTML website with JS.
 
 ### images
 Images referenced in the markdown files
