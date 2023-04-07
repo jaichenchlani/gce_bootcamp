@@ -36,7 +36,7 @@ ls -lrt /home/repos
 
 let "count++" # Look at the aliases..
 echo "$count) Look at the aliases BEFORE setting them up..."
-ls -lrt /home/repos
+alias
 
 let "count++" # Update bash profile to add aliases
 echo "$count) Update bash profile to add aliases..."

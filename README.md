@@ -11,11 +11,13 @@ A. *Linux/Mac User* - If you ware comfortable with Linux, and have gcloud, terra
 B. *Windows User* - Use sreterminal jumpbox.
     - Create a centos-7 VM with the [startup_script_sreterminal](scripts/startup_script_sreterminal.sh)
     - `gcloud compute ssh --zone $zone sreterminal  --project $project_id'` ssh into the machine once the machine is up. 
-    - 
+    - `gcloud --version; kubectl version; terraform --version; packer --version` Validate all the tools
+    - `alias` Check the aliases BEFORE updating the bash profile
+    - `cat /home/repos/utilities/aliases.md >> .bashrc` Update the bash profile with aliases
+    - `source .bashrc` This is needed to make the changes take effect.
+    - `sudo gsutil cp <gsutil_uri_to_your_credentials> /home/repos/gce_bootcamp/` The credentials file is needed for the terraform scripts to run. 
 
-
-
-
+sudo gsutil cp gs://codegarage-credentials/credentials.json /home/repos/gce_bootcamp/
 
 Important to follow, else Test and Validate will fail
 1. Download the Compute Engine default service account key, and save it as *credentials.json* in the root folder. Refer [sa_key_download](images/sa_key_download.png). 
