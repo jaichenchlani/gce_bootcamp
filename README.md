@@ -6,7 +6,19 @@ All the code used for the demos for the Udemy Course
 https://www.udemy.com/course/google-cloud-gce-reliability-engineering-using-terraform
 
 ## Setup Instructions
-1. Download the Compute Engine default service account key, and save it as *credentials.json* in the root folder. Refer [sa_key_download](images/sa_key_download.png)
+**Below are your options:**
+A. *Linux/Mac User* - If you ware comfortable with Linux, and have gcloud, terraform and packer installed on your machine, you are good, just follow the steps below. If you do not have the tools installed, and you are looking for an alternative easier path, follow option B.
+B. *Windows User* - Use sreterminal jumpbox.
+    - Create a centos-7 VM with the [startup_script_sreterminal](scripts/startup_script_sreterminal.sh)
+    - `gcloud compute ssh --zone $zone sreterminal  --project $project_id'` ssh into the machine once the machine is up. 
+    - 
+
+
+
+
+
+Important to follow, else Test and Validate will fail
+1. Download the Compute Engine default service account key, and save it as *credentials.json* in the root folder. Refer [sa_key_download](images/sa_key_download.png). 
 2. Navigate to packer folder and run the following commands
     1. `packer build -force statichtml.centos.packer.json` Build the statichtml webserver image
     2. `packer build -force statichtmlwithjs.debian.packer.json` Build the statichtmlwithjs webserver image
