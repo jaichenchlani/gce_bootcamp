@@ -99,7 +99,6 @@ variable "grafana_image" {
 }
 
 # Health Check Variables
-
 variable "website_health_check_name" { 
     type            = string
     default         = "website-health-check"

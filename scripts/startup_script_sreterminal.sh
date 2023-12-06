@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# THIS IS OBSOLETE
+
 # The startup script performs the following functions
 # A. Install SRE Terminal Tools
 # git, kubectl, yum-utils, terraform, packer
