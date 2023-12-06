@@ -4,6 +4,7 @@ machine_type="n1-standard-1"
 scopes="https://www.googleapis.com/auth/cloud-platform"
 debian_image="projects/debian-cloud/global/images/debian-11-bullseye-v20230306"
 centos_image="projects/centos-cloud/global/images/centos-7-v20230306"
+sreterminal_image="projects/centos-cloud/global/images/centos-stream-8-v20231115"
 ni_external_ip="network-tier=PREMIUM,subnet=default"  
 
 ### Webserver Configuration Files Location
@@ -14,8 +15,10 @@ webserve_debian_config_files="gs://codegarage-001-app-config-files-001/webserver
 vm_name_statichtml="vm-statichtml"
 vm_name_statichtmlwithjs="vm-statichtmlwithjs"
 vm_name_grafana="vm-grafana"
+vm_name_sreterminal="sreterminal"
 
 ### Startup Scripts
 webserver_centos_startup_script="../startup_script_statichtml_centos_with_installation.sh"
 webserver_debian_startup_script="../startup_script_statichtmlwithjs_debian_with_installation.sh"
 webserver_grafana_startup_script="../startup_script_grafana_debian_with_installation.sh"
+sreterminal_startup_script="../setup_sreterminal.sh"
